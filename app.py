@@ -3,7 +3,6 @@ from flask import Flask,request,redirect,url_for,render_template
 from google import genai
 from google.genai import types
 from dotenv import load_dotenv
-import os
 import json
 
 load_dotenv()
