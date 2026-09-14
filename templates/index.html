@@ -8,22 +8,17 @@
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
   </head>
   <body>
-    <nav class="navbar bg-body-tertiary">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">
-            <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Logo" width="30" height="24" class="d-inline-block align-text-top">
-            DevPath <p style="font-size: small;">AI Powered Project Planner</p>
-            </a>
-        </div>
+    <section class="container mt-0 pt-0">
+        <nav class="container">
+            <img src="{{ url_for('static', filename='nav_image.png') }}" alt="Logo" width="60%" height="40%">
     </nav>
-    <section class="container my-5 py-5">
-    <div class="text-center mb-5">
+    <div class="text-center mb-3">
         <h2 class="section-title">
             From <span class="highlight">idea</span> to <span class="highlight">execution.</span>
         </h2>
 
         <p class="text-muted section-subtitle">
-            DevPath gives you a clear direction before you start coding.
+            
             <h3><span class="highlight" style="font-weight: bold;">Don’t just have an idea. Know how to build it.</span></h3>
         </p>
     </div>
@@ -45,7 +40,7 @@
                 <span class="step-number"></span>
                 <h4>Plan</h4>
                 <p>
-                    Gemini analyzes your idea and creates a
+                    Powered by Gemini, our AI analyzes analyzes your idea and creates a
                     <span class="highlight">structured roadmap.</span>
                 </p>
             </div>
