@@ -39,7 +39,7 @@ def project_details():
 
             Return ONLY one valid JSON object.
 
-            The JSON must contain EXACTLY these 9 top-level keys:
+            The JSON must contain EXACTLY these 8 top-level keys:
 
             project_overview
             core_features
@@ -49,7 +49,6 @@ def project_details():
             development_roadmap
             concepts_to_learn
             future_improvements
-            architecture_diagram
 
             Requirements:
 
@@ -83,20 +82,7 @@ def project_details():
 
             future_improvements:
             Suggest useful features, scalability improvements, security improvements, performance improvements, or advanced functionality that could be added after the initial version.
-            architecture_diagram:
-            Generate a concise Mermaid diagram showing the main components of the system and how data flows between them.
-
-            Rules:
-            - Return ONLY valid Mermaid syntax.
-            - Start with "graph TD".
-            - Do not use Markdown code fences.
-            - Do not include explanations.
-            - Do not use ```mermaid.
-            - Keep the diagram concise and readable.
-            - Use simple node labels.
-            - Show the main flow between frontend, backend, database, and external APIs when applicable.
-            - Adapt the diagram to the actual project.
-            Use this JSON structure:
+            
 
             {{
                 "project_overview": "string",
@@ -137,10 +123,18 @@ def project_details():
             - Do not add any keys other than the 8 specified top-level keys.
             - Return valid JSON only.
             """
+        
         try:
-            response=client.models.generate_content( model="gemini-3.7-flash",contents=prompt,config=types.GenerateContentConfig(response_mime_type="application/json",temperature=0.3))
+            response=client.models.generate_content( model="gemini-3.5-flash",contents=prompt,config=types.GenerateContentConfig(response_mime_type="application/json",temperature=0.3))
             data=json.loads(response.text)
-            return render_template("plan.html",data=data)
+            architecture_diagram = f"""
+                graph TD
+                    A[User] --> B[Frontend]
+                    B --> C[Flask Backend]
+                    C --> D[Database]
+                    C --> E[Gemini API]
+                """
+            return render_template("plan.html",data=data,architecture_diagram=architecture_diagram)
         
         except Exception as e:
             return {"ERROR":str(e)} , 500

@@ -69,7 +69,7 @@
                     <span>Deployment</span>
                     <strong>{{ data.recommended_tech_stack.deployment | join(', ') }}</strong>
                 </div>
-                {% endif %}
+                
             </div>
         </div>
     </div>
@@ -84,7 +84,7 @@
 
         <div class="architecture-box">
             <div class="mermaid">
-                {{ data.architecture_diagram}}
+                {{architecture_diagram}}
             </div>
         </div>
     </div>
