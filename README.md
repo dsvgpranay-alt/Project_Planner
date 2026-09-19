@@ -11,13 +11,13 @@ Describe your idea, and DevPath generates a practical roadmap to help you move f
 
 ## Features
 
-- 💡 Enter and describe a project idea
-- 🤖 Generate a structured project plan using Gemini
-- 📝 Dynamically display AI-generated results
-- 🎨 Responsive interface using Bootstrap
-- 🔄 Server-side rendering with Jinja2
-- 📊 Generate project diagrams using Mermaid
-- 🔐 Secure API key configuration using environment variables
+-  Enter and describe a project idea
+-  Generate a structured project plan using Gemini
+-  Dynamically display AI-generated results
+-  Responsive interface using Bootstrap
+-  Server-side rendering with Jinja2
+-  Generate project diagrams using Mermaid
+-  Secure API key configuration using environment variables
 
 ## Tech Stack
 
