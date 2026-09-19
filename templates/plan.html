@@ -47,32 +47,27 @@
 
                 <div class="tech-item">
                     <span>Backend</span>
-                    <strong>{{ data.recommended_tech_stack.backend }}</strong>
+                    <strong>{{ data.recommended_tech_stack.backend | join(', ') }}</strong>
                 </div>
 
                 <div class="tech-item">
                     <span>Frontend</span>
-                    <strong>{{data.recommended_tech_stack.frontend }}</strong>
+                    <strong>{{ data.recommended_tech_stack.frontend | join(', ') }}</strong>
                 </div>
 
-                {% if data.recommended_tech_stack.database %}
                 <div class="tech-item">
                     <span>Database</span>
-                    <strong>{{ data.recommended_tech_stack.database }}</strong>
+                    <strong>{{ data.recommended_tech_stack.database | join(', ') }}</strong>
                 </div>
-                {% endif %}
 
-                {% if data.recommended_tech_stack.pdf_generation %}
                 <div class="tech-item">
-                    <span>PDF</span>
-                    <strong>{{ data.recommended_tech_stack.pdf_generation }}</strong>
+                    <span>APIs</span>
+                    <strong>{{ data.recommended_tech_stack.apis | join(', ') }}</strong>
                 </div>
-                {% endif %}
 
-                {% if data.recommended_tech_stack.deployment %}
                 <div class="tech-item">
                     <span>Deployment</span>
-                    <strong>{{ data.recommended_tech_stack.deployment }}</strong>
+                    <strong>{{ data.recommended_tech_stack.deployment | join(', ') }}</strong>
                 </div>
                 {% endif %}
             </div>
@@ -82,11 +77,14 @@
     <div class="result-card mb-4">
         <p class="section-label">SYSTEM ARCHITECTURE</p>
         <h2>How everything connects</h2>
-        <p class="result-text">{{ data.system_architecture }}</p>
+        <ul>{% for component in data.system_architecture %}
+        <li>{{ component }}</li>
+        {% endfor %}
+        </ul>
 
         <div class="architecture-box">
             <div class="mermaid">
-                {{ data.architecture_diagram }}
+                {{ data.architecture_diagram}}
             </div>
         </div>
     </div>
